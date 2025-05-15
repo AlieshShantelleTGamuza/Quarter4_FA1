@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+
+  <title>Campaign Sign-Up</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header>
+    <h1>Greener Tomorrow Foundation</h1>
+  </header>
+
+  <div class="content">
+    <p>
+      I support Greener Tomorrow Foundation because the campaign actively restores natural habitats and fight climate change through their projects. Their commitment to more sustainable practices help preserve the environment and make it safer for future generations. By letting local communities engage in their problems, they can help us become more responsible towards our environment.
+    </p>
+
+    <form id="signupForm" onsubmit="return validateForm()">
+      <label for="firstName">First Name *</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name *</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label>Sex *</label>
+      <div class="radio-group">
+        <input type="radio" name="sex" value="male" required> Male
+        <input type="radio" name="sex" value="female"> Female
+        <input type="radio" name="sex" value="preferNot"> Prefer not to say
+      </div>
+
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="contact">Contact Number</label>
+      <input type="text" id="contact" name="contact">
+
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+    <p id="warning" style="color: red;"></p>
+  </div>
+
+  <script>
+    function validateForm() {
+      const form = document.getElementById("signupForm");
+      const sexChecked = form.querySelector('input[name="sex"]:checked');
+      if (!sexChecked) {
+        document.getElementById("warning").innerText = "Please fill out all required fields.";
+        return false;
+      }
+      document.getElementById("warning").innerText = "";
+      return true;
+    }
+  </script>
+</body>
+</html>
